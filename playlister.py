@@ -24,7 +24,7 @@ for line in stream:
   tweet = twitter.Status.NewFromJsonDict(line)
   if tweet.text is None:
     continue
-  (artist, song) = tweet.text.split('-')
+  (artist, song) = tweet.text.split(' - ', 2)
 
   track_ids = []
 
