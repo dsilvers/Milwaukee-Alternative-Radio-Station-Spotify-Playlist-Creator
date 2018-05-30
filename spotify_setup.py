@@ -1,3 +1,5 @@
+import spotipy
+import spotipy.util as util
 from settings_local import SPOTIFY_USERNAME, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, \
   SPOTIFY_REDIRECT_URI, SPOTIFY_PLAYLIST_ID, SPOTIFY_SCOPE
 
