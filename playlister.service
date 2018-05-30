@@ -1,0 +1,14 @@
+[Unit]
+Description=fm1021
+After=network.target
+
+[Service]
+User=dan
+Group=dan
+Restart=always
+RestartSec=60
+WorkingDirectory=/home/dan/fm1021
+ExecStart=/home/dan/.virtualenvs/fm1021/bin/python playlister.py
+
+[Install]
+WantedBy=multi-user.target
