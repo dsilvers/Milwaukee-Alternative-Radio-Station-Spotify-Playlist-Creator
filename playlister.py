@@ -28,7 +28,10 @@ for line in stream:
 
   track_ids = []
 
-  token = util.prompt_for_user_token(SPOTIFY_USERNAME, SPOTIFY_SCOPE)
+  token = util.prompt_for_user_token(SPOTIFY_USERNAME, SPOTIFY_SCOPE,
+    client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET,
+    redirect_uri=SPOTIFY_REDIRECT_URI)
+  
   if not token:
       print("Can't get token")
       sys.exit()
