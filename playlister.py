@@ -24,20 +24,22 @@ for line in stream:
   tweet = twitter.Status.NewFromJsonDict(line)
   if tweet.text is None:
     continue
-  (artist, song) = tweet.text.split(' - ', 2)
+  #(artist, song) = tweet.text.split(' - ', 2)
+
+  song_title = tweet.text
 
   track_ids = []
 
   token = util.prompt_for_user_token(SPOTIFY_USERNAME, SPOTIFY_SCOPE,
     client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET,
     redirect_uri=SPOTIFY_REDIRECT_URI)
-  
+
   if not token:
       print("Can't get token")
       sys.exit()
 
   spotify = spotipy.Spotify(auth=token)
-  results = spotify.search(q='artist:{} {}'.format(artist, song), type='track', limit=1)
+  results = spotify.search(q='{}'.format(song_title), type='track', limit=1)
   try:
     track_id = results['tracks']['items'][0]['uri']
   except:
